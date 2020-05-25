@@ -12,8 +12,8 @@ config = {}
 config['AWS_REGION'] = os.environ.get('DR_AWS_APP_REGION', 'us-east-1')
 config['JOB_TYPE'] = 'TRAINING'
 config['KINESIS_VIDEO_STREAM_NAME'] = os.environ.get('DR_KINESIS_STREAM_NAME', 'my-kinesis-stream')
-config['METRIC_NAME'] = 'TrainingRewardScore'
-config['METRIC_NAMESPACE'] = 'AWSDeepRacer'
+#config['METRIC_NAME'] = 'TrainingRewardScore'
+#config['METRIC_NAMESPACE'] = 'AWSDeepRacer'
 config['METRICS_S3_BUCKET'] = os.environ.get('DR_LOCAL_S3_BUCKET', 'bucket')
 
 metrics_prefix = os.environ.get('DR_LOCAL_S3_METRICS_PREFIX', None)
@@ -31,7 +31,7 @@ config['SAGEMAKER_SHARED_S3_BUCKET'] = os.environ.get('DR_LOCAL_S3_BUCKET', 'buc
 config['SAGEMAKER_SHARED_S3_PREFIX'] = os.environ.get('DR_LOCAL_S3_MODEL_PREFIX', 'rl-deepracer-sagemaker')
 config['SIMTRACE_S3_BUCKET'] = os.environ.get('DR_LOCAL_S3_BUCKET', 'bucket')
 config['SIMTRACE_S3_PREFIX'] = os.environ.get('DR_LOCAL_S3_MODEL_PREFIX', 'rl-deepracer-sagemaker')
-config['TARGET_REWARD_SCORE'] = os.environ.get('DR_TARGET_REWARD_SCORE', 'None')
+#config['TARGET_REWARD_SCORE'] = os.environ.get('DR_TARGET_REWARD_SCORE', 'None')
 config['TRAINING_JOB_ARN'] = 'arn:Dummy'
 
 # Car and training 
