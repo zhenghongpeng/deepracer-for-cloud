@@ -23,7 +23,7 @@ else:
     config['METRICS_S3_OBJECT_KEY'] = 'DeepRacer-Metrics/TrainingMetrics-{}.json'.format(str(round(time.time())))
 
 config['MODEL_METADATA_FILE_S3_KEY'] = os.environ.get('DR_LOCAL_S3_MODEL_METADATA_KEY', 'custom_files/model_metadata.json') 
-config['NUMBER_OF_EPISODES'] = os.environ.get('DR_NUMBER_OF_EPISODES', '0')
+#config['NUMBER_OF_EPISODES'] = os.environ.get('DR_NUMBER_OF_EPISODES', '0')
 config['REWARD_FILE_S3_KEY'] = os.environ.get('DR_LOCAL_S3_REWARD_KEY', 'custom_files/reward_function.py')
 config['ROBOMAKER_SIMULATION_JOB_ACCOUNT_ID'] = os.environ.get('', 'Dummy')
 config['NUM_WORKERS'] = os.environ.get('DR_WORKERS', 1)
