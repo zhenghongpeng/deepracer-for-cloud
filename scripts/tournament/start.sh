@@ -3,8 +3,9 @@
 source $DR_DIR/bin/scripts_wrapper.sh
 
 usage(){
-	echo "Usage: $0 [-q]"
-  echo "       -q        Quiet - does not start log tracing."
+	echo "Usage: $0 [-q] [-f yaml-file]"
+  echo "       -q           Quiet - does not start log tracing."
+  echo "       -f filename  Tournament Yaml configuration."
 	exit 1
 }
 
@@ -15,9 +16,11 @@ function ctrl_c() {
         exit 1
 }
 
-while getopts ":q" opt; do
+while getopts ":qf:" opt; do
 case $opt in
 q) OPT_QUIET="QUIET"
+;;
+f) OPT_YAML_FILE="$OPTARG"
 ;;
 h) usage
 ;;
@@ -26,7 +29,6 @@ usage
 ;;
 esac
 done
-
 
 # set evaluation specific environment variables
 S3_PATH="s3://$DR_LOCAL_S3_BUCKET/$DR_LOCAL_S3_MODEL_PREFIX"
@@ -46,6 +48,8 @@ fi
 
 echo "Creating Robomaker configuration in $S3_PATH/$DR_CURRENT_PARAMS_FILE"
 python3 $DR_DIR/scripts/tournament/prepare-config.py
+# echo "Upload configuration to $S3_PATH/$DR_CURRENT_PARAMS_FILE"
+# aws ${DR_LOCAL_PROFILE_ENDPOINT_URL} s3 cp $OPT_YAML_FILE $S3_PATH/$DR_CURRENT_PARAMS_FILE
 
 # Check if we will use Docker Swarm or Docker Compose
 if [[ "${DR_DOCKER_STYLE,,}" == "swarm" ]];
