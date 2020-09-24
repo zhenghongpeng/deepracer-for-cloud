@@ -1,8 +1,8 @@
-
-aws-deepracer-workshops/
-
-deepracer/
-
+.vscode/
+custom_files/
+logs/
 docker/volumes/
 
 **.tar.gz
+aws-deepracer-workshops/
+deepracer/
